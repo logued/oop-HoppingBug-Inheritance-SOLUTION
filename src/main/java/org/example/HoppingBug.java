@@ -29,43 +29,31 @@ public class HoppingBug extends Bug {       // "extends" means to "inherit from"
     
     public HoppingBug(int hoppingDistance, int initialPosition, Direction initialDirection) 
     {
-        super(initialPosition, initialDirection);
+        super(initialPosition, initialDirection);   // call constructor in the superclass (Base class)
         this.hoppingDistance = hoppingDistance;
     }
 
-    public HoppingBug()         // no-argument constructor
-    {
-        super(0);               // default values
-        this.hoppingDistance = 1;
-    }
-    public HoppingBug(int initialPosition)
-    {
-        super(initialPosition);
-        this.hoppingDistance = 1;
-    }
+    // other constructors left out to avoid clutter
 
-    public HoppingBug(int initialPosition, Direction initialDirection )
-    {
-        super(initialPosition, initialDirection );
-        this.hoppingDistance = 1;
-    }
     /**
      * move()
      * Moves the HoppingBug by its 'hoppingDistance' in the direction it is facing.
+     * This is different BEHAVIOUR to what is provided by the move() defined in Bug.
      * This move() method overrides the move() method that is inherited from
      * the Bug class.  This must be done as this HoppingBug moves in a different
      * way (it hops).  The behavior is different.
      * Note that we MUST use the Bug classes public getters and setters to access 
      * the position and direction because they are 'private' to the Bug class 
      * (and are therefore not directly accessible by code defined outside the Bug class)
+     * (we could make those fields 'protected', but this is not considered best practice)
      */
     @Override
     public void move() 
     {
         if (Direction.RIGHT == getDirection()) {
-            setPosition( getPosition() + hoppingDistance);
+            setPosition( getPosition() + hoppingDistance );
         } else {
-            setPosition( getPosition() - hoppingDistance);
+            setPosition( getPosition() - hoppingDistance );
         }
     }
 
@@ -75,7 +63,8 @@ public class HoppingBug extends Bug {       // "extends" means to "inherit from"
 
     @Override                   // overrides the toString() method in the Bug class
     public String toString()
-    {       // call the superclass toString()
+    {       // call the superclass toString() to get a string that contains the position and direction
+            // and then append the hopping distance.
         return super.toString() + "{hoppingDistance=" + hoppingDistance + '}';
     }  
 }

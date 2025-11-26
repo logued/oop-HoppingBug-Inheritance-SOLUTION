@@ -1,11 +1,10 @@
-/*                          //  October 2022
+package org.example;
+/*                          //  November 2025
  * P8.12 - Bug movement.
  * HoppingBug inherits from Bug class and extends its functionality.
  */
-package org.example;
-import enums.Direction;
 
-import java.lang.reflect.Array;
+import enums.Direction;
 import java.util.ArrayList;
 
 public class MainApp
@@ -43,15 +42,15 @@ public class MainApp
         System.out.println("hoppingBug1.toString() : " + hoppingBug1.toString());   // calls overridden toString()
         System.out.println("printing object hoppingBug1, will call toString(): " + hoppingBug1);
         
-        HoppingBug hoppingBug2= new HoppingBug(12);
+        HoppingBug hoppingBug2= new HoppingBug(3,0,Direction.RIGHT );
         System.out.println("hoppingBug2: " +hoppingBug2);
-        HoppingBug hoppingBug3 = new HoppingBug(10, Direction.LEFT);
+        HoppingBug hoppingBug3 = new HoppingBug(5,0, Direction.LEFT);
         System.out.println("hoppingBug3: " +hoppingBug3);
 
         // As HoppingBug inherits from Bug, we can use a reference of type Bug
         // to point at either a Bug or HoppingBug object.  So, we can store both
         // types of bugs in an ArrayList<Bug> and make use of polymorphic behaviour when we
-        // call the move( )method on each object in the ArrayList.
+        // call the move() method on each object in the ArrayList.
 
         ArrayList<Bug> bugList = new ArrayList<>();
         bugList.add(bug1);
@@ -73,6 +72,5 @@ public class MainApp
         for(Bug bug : bugList) {
             System.out.println(bug.toString());
         }
-        
     }
 }

@@ -1,3 +1,4 @@
+package org.example;
 /**
  *  P8.12   Bug
  *  In this program, the Bug class implements the behaviour of a Bug.
@@ -8,7 +9,7 @@
  *  method is simply inherited from Bug because the turn behaviour is the
  *  same in both classes.
  */
-package org.example;
+
 import enums.Direction; // Enumeration class
 
 public class Bug
@@ -21,12 +22,7 @@ public class Bug
         this.position = 0;
         this.direction = Direction.RIGHT;
     }
-    
-    public Bug(int initialPosition)
-    {
-        this.position = initialPosition;
-        this.direction = Direction.RIGHT;   //initial direction
-    }
+
 
     public Bug(int initialPosition, Direction initialDirection)
     {
@@ -37,9 +33,9 @@ public class Bug
     public void turn()
     {
         if (Direction.RIGHT == this.direction) {
-            direction = Direction.LEFT;  // reverse direction
+            this.direction = Direction.LEFT;  // reverse direction
         } else {
-            direction = Direction.RIGHT;
+            this.direction = Direction.RIGHT;
         }
     }
 
